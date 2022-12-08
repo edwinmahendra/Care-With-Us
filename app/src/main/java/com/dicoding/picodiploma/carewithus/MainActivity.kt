@@ -10,7 +10,4 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Edwin Home"
     }
-
-
-
 }
