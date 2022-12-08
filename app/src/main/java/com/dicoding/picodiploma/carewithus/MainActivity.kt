@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.title = "Edwin Home"
-        tes
+        supportActionBar?.title = "Agung Home"
+
     }
 }
