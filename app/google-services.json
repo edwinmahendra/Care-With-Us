@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "512263664148",
+    "project_id": "carewithus-dd7ba",
+    "storage_bucket": "carewithus-dd7ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512263664148:android:3d90ae0e1a6dd8e76cad01",
+        "android_client_info": {
+          "package_name": "com.dicoding.picodiploma.carewithus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512263664148-45ks8ser01ojoldv656k3c7cnkm3r3cj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.picodiploma.carewithus",
+            "certificate_hash": "66f2dcd7757e2ee9f47cefbd1eaaad0bca0952a3"
+          }
+        },
+        {
+          "client_id": "512263664148-gfcgbk84252epqnuaucitdqvsnltkeci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpvAL_kepkNUZA8w-SmSLNDui4hhTXdb0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512263664148-gfcgbk84252epqnuaucitdqvsnltkeci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
