@@ -104,6 +104,7 @@ class RegisterActivity : AppCompatActivity() {
                 android.R.anim.fade_out
             )
             this.startActivity(intent, options.toBundle())
+            finish()
         }
     }
 
