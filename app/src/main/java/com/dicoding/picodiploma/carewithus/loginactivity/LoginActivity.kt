@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.picodiploma.carewithus.AdminActivity
 import com.dicoding.picodiploma.carewithus.MainActivity
 import com.dicoding.picodiploma.carewithus.customview.ButtonCustomView
 import com.dicoding.picodiploma.carewithus.customview.EmailCustomView
@@ -17,6 +18,10 @@ import com.dicoding.picodiploma.carewithus.databinding.ActivityLoginBinding
 import com.dicoding.picodiploma.carewithus.registeractivity.RegisterActivity
 import com.dicoding.picodiploma.carewithus.utils.animateVisibility
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class LoginActivity : AppCompatActivity() {
 
@@ -59,25 +64,37 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passwordLogin.text.toString()
             if (email != "" && password != "") {
                 auth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this) {
-                        if (it.isSuccessful) {
-                            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                            startActivity(intent)
-                        } else {
-                            Toast.makeText(this, "Login Unsuccessful", Toast.LENGTH_SHORT).show()
-                            Log.d(TAG, "${it.exception?.message}")
-                            progressBar(false)
-                        }
+                    .addOnSuccessListener(this) {
+                        checkUser()
                     }
-            } else {
-                Toast.makeText(
-                    baseContext, "Login failed.",
-                    Toast.LENGTH_SHORT
-                ).show()
-                progressBar(false)
+                    .addOnFailureListener{e->
+                        Toast.makeText(this,"Login Failed", Toast.LENGTH_SHORT)
+                    }
             }
         }
+    }
+
+
+    private fun checkUser(){
+        val firebaseUser = auth.currentUser!!
+
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(firebaseUser.uid)
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot){
+                    val userType = snapshot.child("userType").value
+                    if (userType == "user"){
+                        startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                        finish()
+                    }else if (userType =="admin"){
+                        startActivity(Intent(this@LoginActivity, AdminActivity::class.java))
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
     }
 
 
