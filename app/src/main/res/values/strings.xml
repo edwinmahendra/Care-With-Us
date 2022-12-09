@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Care With Us</string>
-    <string name="login">Login</string>
+    <string name="login">Hello, let\'s sign in first!</string>
 </resources>
