@@ -22,4 +22,10 @@
         <item name="fontFamily">@font/product_sans_bold</item>
         <item name="android:textSize">28sp</item>
     </style>
+
+    <style name="ImageVector">
+        <item name="fontFamily">@font/product_sans_bold</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@color/color_4</item>
+    </style>
 </resources>

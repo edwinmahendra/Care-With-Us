@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Care With Us</string>
-    <string name="login">Hello, let\'s sign in first!</string>
+    <string name="login">Let\'s sign in first!</string>
+    <string name="person_login_image">Person login image</string>
+    <string name="carewithus_description">Welcome to CareWithUs! This application will help you to study the material well</string>
+    <string name="hello">Hello!</string>
 </resources>
