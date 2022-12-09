@@ -6,5 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".loginactivity.LoginActivity">
 
+    <TextView
+        android:layout_width="143dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="104dp"
+        android:gravity="center"
+        android:text="@string/login"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
