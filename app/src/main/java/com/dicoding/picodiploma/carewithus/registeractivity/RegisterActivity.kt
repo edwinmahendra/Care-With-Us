@@ -13,6 +13,7 @@ import com.dicoding.picodiploma.carewithus.customview.PasswordCustomView
 import com.dicoding.picodiploma.carewithus.customview.UsernameCustomView
 import com.dicoding.picodiploma.carewithus.databinding.ActivityRegisterBinding
 import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
+import com.dicoding.picodiploma.carewithus.utils.animateVisibility
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -50,26 +51,46 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun createAccount() {
+
         binding.buttonRegister.setOnClickListener {
             val username = binding.inputUsername.text.toString()
             val email = binding.inputEmail.text.toString()
             val password = binding.passwordLogin.text.toString()
+            progressBar(true)
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) {
                     if (it.isSuccessful) {
                         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show()
                         val user = auth.currentUser
                         val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                        val profileUpdates = UserProfileChangeRequest.Builder().setDisplayName(username).build()
+                        val profileUpdates =
+                            UserProfileChangeRequest.Builder().setDisplayName(username).build()
                         user?.updateProfile(profileUpdates)
                         updateUI(user)
                         startActivity(intent)
                     } else {
                         updateUI(null)
                         Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                        progressBar(false)
                     }
                 }
         }
+    }
+
+    private fun progressBar(isLoading: Boolean) {
+        binding.apply {
+            inputEmail.isEnabled = !isLoading
+            inputUsername.isEnabled = !isLoading
+            passwordLogin.isEnabled = !isLoading
+            buttonRegister.isEnabled = !isLoading
+
+            if (isLoading) {
+                viewLoading.animateVisibility(true)
+            } else {
+                viewLoading.animateVisibility(false)
+            }
+        }
+
     }
 
     private fun haveAccount() {
