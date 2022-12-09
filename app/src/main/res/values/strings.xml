@@ -5,4 +5,9 @@
     <string name="carewithus_description">Welcome to CareWithUs! This application will help you to study the material well</string>
     <string name="hello">Hello!</string>
     <string name="email_input">Input Your Email</string>
+    <string name="password_not_valid">Password must be %1$d characters</string>
+    <string name="input_password">Input Your Password</string>
+    <string name="btn_login">Login</string>
+    <string name="dont_hv_acc">Don\'t have account?</string>
+    <string name="reg_here">Register Here</string>
 </resources>
