@@ -10,4 +10,11 @@
     <string name="btn_login">Login</string>
     <string name="dont_hv_acc">Don\'t have account?</string>
     <string name="reg_here">Register Here</string>
+    <string name="reg_txt">Register</string>
+    <string name="create_ur">Create Your Account</string>
+    <string name="reg_desc">Let us know about your set!</string>
+    <string name="input_name">Input Your Name</string>
+    <string name="btn_register">Register</string>
+    <string name="already_have_account">Already have account?</string>
+    <string name="log_here">Login here</string>
 </resources>
