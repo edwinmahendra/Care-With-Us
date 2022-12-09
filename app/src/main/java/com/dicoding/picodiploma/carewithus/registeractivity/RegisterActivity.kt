@@ -71,6 +71,9 @@ class RegisterActivity : AppCompatActivity() {
                         berhasil(user)
                         val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                         startActivity(intent)
+                        val profileUpdates =
+                            UserProfileChangeRequest.Builder().setDisplayName(username).build()
+                        user?.updateProfile(profileUpdates)
                     } else {
                         berhasil(null)
                         Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
