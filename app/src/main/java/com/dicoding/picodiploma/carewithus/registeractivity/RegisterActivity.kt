@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.picodiploma.carewithus.MainActivity
 import com.dicoding.picodiploma.carewithus.customview.ButtonCustomView
 import com.dicoding.picodiploma.carewithus.customview.EmailCustomView
 import com.dicoding.picodiploma.carewithus.customview.PasswordCustomView
@@ -48,6 +49,12 @@ class RegisterActivity : AppCompatActivity() {
         passwordCustomView.addTextChangedListener(textChangedListener)
 
         createAccount()
+
+        if (auth.currentUser != null) {
+            val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun createAccount() {
@@ -65,10 +72,8 @@ class RegisterActivity : AppCompatActivity() {
                         val profileUpdates =
                             UserProfileChangeRequest.Builder().setDisplayName(username).build()
                         user?.updateProfile(profileUpdates)
-                        updateUI(user)
                         startActivity(intent)
                     } else {
-                        updateUI(null)
                         Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                         progressBar(false)
                     }
@@ -120,10 +125,5 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateUI(currentUser: FirebaseUser?) {
-        if (currentUser != null) {
-            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
-            finish()
-        }
-    }
+
 }

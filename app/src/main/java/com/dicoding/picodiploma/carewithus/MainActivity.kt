@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.dicoding.picodiploma.carewithus.databinding.ActivityMainBinding
 import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -17,16 +18,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        auth = FirebaseAuth.getInstance()
+
         supportActionBar?.title = "Home"
 
-        auth = FirebaseAuth.getInstance()
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+
+        if (firebaseUser != null) {
+            binding.textView.setText(firebaseUser.displayName)
+        }else {
+            binding.textView.setText("Login failed")
+        }
 
         binding.btnLogout.setOnClickListener{
             auth.signOut()
-            Intent(this@MainActivity, LoginActivity::class.java).also {
-                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-            }
+            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(intent)
         }
 
     }

@@ -46,6 +46,11 @@ class LoginActivity : AppCompatActivity() {
         dhaveAccount()
         logginAccount()
 
+        if (auth.currentUser != null) {
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun logginAccount() {
@@ -58,8 +63,8 @@ class LoginActivity : AppCompatActivity() {
                     .addOnCompleteListener(this) {
                         if (it.isSuccessful) {
                             Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                            val user = auth.currentUser
-                            updateUI(user)
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            startActivity(intent)
                         } else {
                             Toast.makeText(this, "Login Unsuccessful", Toast.LENGTH_SHORT).show()
                             Log.d(TAG, "${it.exception?.message}")
@@ -76,12 +81,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateUI(user: FirebaseUser?) {
-        if (user != null) {
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-            finish()
-        }
-    }
 
     private val textChangedListener = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
