@@ -68,7 +68,8 @@ class LoginActivity : AppCompatActivity() {
                         checkUser()
                     }
                     .addOnFailureListener{e->
-                        Toast.makeText(this,"Login Failed", Toast.LENGTH_SHORT)
+                        Toast.makeText(this,"Login Failed", Toast.LENGTH_SHORT).show()
+                        progressBar(false)
                     }
             }
         }
@@ -88,6 +89,7 @@ class LoginActivity : AppCompatActivity() {
                         finish()
                     }else if (userType =="admin"){
                         startActivity(Intent(this@LoginActivity, AdminActivity::class.java))
+                        finish()
                     }
                 }
 
