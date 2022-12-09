@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".registeractivity.RegisterActivity">
+    tools:context=".registeractivity.RegisterActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-25dp">
 
     <View
-        android:id="@+id/view"
-        android:layout_width="418dp"
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
         android:layout_height="273dp"
         android:background="@color/color_3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,36 +26,39 @@
         android:layout_marginTop="24dp"
         android:contentDescription="@string/person_login_image"
         android:src="@drawable/person_register"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintBottom_toBottomOf="@+id/view1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/Hello_all"
-        style="@style/ImageVector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/Register_Textview"
+        android:layout_width="187dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="36dp"
+        android:fontFamily="@font/product_sans_bold"
         android:gravity="center"
         android:text="@string/reg_txt"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.488" />
+        app:layout_constraintTop_toTopOf="@+id/view1"
+        app:layout_constraintVertical_bias="0.476" />
 
     <TextView
-        android:id="@+id/Hello"
-        style="@style/Text.Title"
+        android:id="@+id/Create_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/product_sans_bold"
         android:text="@string/create_ur"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintHorizontal_bias="0.198"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/view1" />
 
     <TextView
         android:id="@+id/txtView1"
@@ -65,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Hello" />
+        app:layout_constraintTop_toBottomOf="@+id/Create_textview" />
 
     <com.dicoding.picodiploma.carewithus.customview.UsernameCustomView
         android:id="@+id/input_username"
@@ -101,19 +106,20 @@
         app:layout_constraintTop_toBottomOf="@+id/input_email" />
 
     <Button
-        android:id="@+id/button_login"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/button_register"
+        android:layout_width="358dp"
+        android:layout_height="44dp"
         android:layout_marginTop="28dp"
-        android:padding="12dp"
+        android:background="@color/color_2"
         android:text="@string/btn_register"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_login" />
 
     <LinearLayout
-        android:id="@+id/button_register"
+        android:id="@+id/button_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -123,7 +129,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_login">
+        app:layout_constraintTop_toBottomOf="@+id/button_register">
 
         <TextView
             android:layout_width="wrap_content"

@@ -10,7 +10,7 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="418dp"
+        android:layout_width="match_parent"
         android:layout_height="273dp"
         android:background="@color/color_3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -58,7 +58,7 @@
         android:id="@+id/txtView1"
         style="@style/Text"
         android:layout_width="352dp"
-        android:layout_height="41dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/carewithus_description"
         app:layout_constraintEnd_toEndOf="parent"

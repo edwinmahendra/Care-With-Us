@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.dicoding.picodiploma.carewithus.R
 import com.dicoding.picodiploma.carewithus.databinding.ActivityLoginBinding
 import com.dicoding.picodiploma.carewithus.databinding.ActivityRegisterBinding
+import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -17,11 +18,13 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
         haveAccount()
+
+        supportActionBar?.hide()
     }
 
     private fun haveAccount() {
-        binding.buttonRegister.setOnClickListener{
-            val intent = Intent(this@RegisterActivity, RegisterActivity::class.java)
+        binding.buttonLogin.setOnClickListener{
+            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             val options = ActivityOptions.makeCustomAnimation(
                 this,
                 android.R.anim.fade_in,

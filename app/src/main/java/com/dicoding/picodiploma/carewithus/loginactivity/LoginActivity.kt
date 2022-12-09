@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun dhaveAccount() {
-        binding.buttonLogin.setOnClickListener {
+        binding.buttonRegister.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             val options = ActivityOptions.makeCustomAnimation(
                 this,
