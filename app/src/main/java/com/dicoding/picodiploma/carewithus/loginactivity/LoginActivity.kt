@@ -17,7 +17,6 @@ import com.dicoding.picodiploma.carewithus.databinding.ActivityLoginBinding
 import com.dicoding.picodiploma.carewithus.registeractivity.RegisterActivity
 import com.dicoding.picodiploma.carewithus.utils.animateVisibility
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class LoginActivity : AppCompatActivity() {
 
@@ -112,7 +111,7 @@ class LoginActivity : AppCompatActivity() {
         binding.apply {
             emailLogin.isEnabled = !isLoading
             passwordLogin.isEnabled = !isLoading
-            buttonRegister.isEnabled = !isLoading
+            buttonLogin.isEnabled = !isLoading
 
             if (isLoading) {
                 viewLoading.animateVisibility(true)

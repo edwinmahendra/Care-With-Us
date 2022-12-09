@@ -16,7 +16,6 @@ import com.dicoding.picodiploma.carewithus.databinding.ActivityRegisterBinding
 import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
 import com.dicoding.picodiploma.carewithus.utils.animateVisibility
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 
 class RegisterActivity : AppCompatActivity() {
@@ -124,6 +123,4 @@ class RegisterActivity : AppCompatActivity() {
         override fun afterTextChanged(s: Editable) {
         }
     }
-
-
 }
