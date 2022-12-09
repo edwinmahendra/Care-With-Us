@@ -18,6 +18,7 @@ import com.dicoding.picodiploma.carewithus.utils.animateVisibility
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -27,6 +28,9 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var usernameCustomView: UsernameCustomView
     private lateinit var buttonCustomView: ButtonCustomView
     private lateinit var auth: FirebaseAuth
+    private var name = ""
+    private var email = ""
+    private var password = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,50 +38,56 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
         haveAccount()
-
         auth = FirebaseAuth.getInstance()
-
         supportActionBar?.hide()
-
         emailCustomView = binding.inputEmail
         passwordCustomView = binding.passwordLogin
         buttonCustomView = binding.buttonRegister
         usernameCustomView = binding.inputUsername
-
         usernameCustomView.addTextChangedListener(textChangedListener)
         emailCustomView.addTextChangedListener(textChangedListener)
         passwordCustomView.addTextChangedListener(textChangedListener)
-
         createAccount()
-
-//        if (auth.currentUser != null) {
-//            val intent = Intent(this@RegisterActivity, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
     }
 
     private fun createAccount() {
         binding.buttonRegister.setOnClickListener {
-            val username = binding.inputUsername.text.toString()
-            val email = binding.inputEmail.text.toString()
-            val password = binding.passwordLogin.text.toString()
+            name = binding.inputUsername.text.toString().trim()
+            email = binding.inputEmail.text.toString().trim()
+            password = binding.passwordLogin.text.toString().trim()
             progressBar(true)
             auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) {
-                    if (it.isSuccessful) {
-                        Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show()
-                        val user = auth.currentUser
-                        berhasil(user)
-                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        berhasil(null)
-                        Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
-                        progressBar(false)
+                .addOnSuccessListener(this) {
+                    updateUserInfo()
                     }
+                .addOnFailureListener(this){
+                    progressBar(false)
+                    Toast.makeText(this, "Register Failed", Toast.LENGTH_SHORT).show()
                 }
         }
+    }
+
+    private fun updateUserInfo(){
+        val timestamp = System.currentTimeMillis()
+        val uid = auth.uid
+        val hashMap: HashMap<String,Any?> = HashMap()
+        hashMap["uid"] = uid
+        hashMap["email"] = email
+        hashMap["name"] = name
+        hashMap["profileImage"] = ""
+        hashMap["userType"]= "user"
+        hashMap["timestamp"] = timestamp
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(uid!!)
+            .setValue(hashMap)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+                finish()
+            }
+            .addOnFailureListener { e->
+                Toast.makeText(this, "Register Failed", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun berhasil(user: FirebaseUser?) {

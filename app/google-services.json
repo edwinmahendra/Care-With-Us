@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "512263664148",
-    "project_id": "carewithus-dd7ba",
-    "storage_bucket": "carewithus-dd7ba.appspot.com"
+    "project_number": "437740693349",
+    "project_id": "care-with-us",
+    "storage_bucket": "care-with-us.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:512263664148:android:3d90ae0e1a6dd8e76cad01",
+        "mobilesdk_app_id": "1:437740693349:android:c9fbb872db493ba71aa38c",
         "android_client_info": {
           "package_name": "com.dicoding.picodiploma.carewithus"
         }
       },
       "oauth_client": [
         {
-          "client_id": "512263664148-45ks8ser01ojoldv656k3c7cnkm3r3cj.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.dicoding.picodiploma.carewithus",
-            "certificate_hash": "66f2dcd7757e2ee9f47cefbd1eaaad0bca0952a3"
-          }
-        },
-        {
-          "client_id": "512263664148-gfcgbk84252epqnuaucitdqvsnltkeci.apps.googleusercontent.com",
+          "client_id": "437740693349-lsgd1b1iuomhagv3s0olvmnmsg910k4p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDpvAL_kepkNUZA8w-SmSLNDui4hhTXdb0"
+          "current_key": "AIzaSyDzQ6CUvufdm_oo4Nn6CJ8Y6guCQUOslhg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "512263664148-gfcgbk84252epqnuaucitdqvsnltkeci.apps.googleusercontent.com",
+              "client_id": "437740693349-lsgd1b1iuomhagv3s0olvmnmsg910k4p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
