@@ -64,6 +64,7 @@ class LoginActivity : AppCompatActivity() {
                             Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@LoginActivity, MainActivity::class.java)
                             startActivity(intent)
+                            finish()
                         } else {
                             Toast.makeText(this, "Login Unsuccessful", Toast.LENGTH_SHORT).show()
                             Log.d(TAG, "${it.exception?.message}")
@@ -119,5 +120,13 @@ class LoginActivity : AppCompatActivity() {
                 viewLoading.animateVisibility(false)
             }
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(Intent.ACTION_MAIN)
+        intent.addCategory(Intent.CATEGORY_HOME)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish()
     }
 }

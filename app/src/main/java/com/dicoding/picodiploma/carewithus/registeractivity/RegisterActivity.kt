@@ -27,7 +27,6 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var buttonCustomView: ButtonCustomView
     private lateinit var auth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -72,6 +71,7 @@ class RegisterActivity : AppCompatActivity() {
                             UserProfileChangeRequest.Builder().setDisplayName(username).build()
                         user?.updateProfile(profileUpdates)
                         startActivity(intent)
+                        finish()
                     } else {
                         Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                         progressBar(false)
@@ -122,5 +122,13 @@ class RegisterActivity : AppCompatActivity() {
 
         override fun afterTextChanged(s: Editable) {
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(Intent.ACTION_MAIN)
+        intent.addCategory(Intent.CATEGORY_HOME)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish()
     }
 }
