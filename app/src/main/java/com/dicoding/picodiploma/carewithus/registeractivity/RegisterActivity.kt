@@ -57,10 +57,11 @@ class RegisterActivity : AppCompatActivity() {
             password = binding.passwordLogin.text.toString().trim()
             progressBar(true)
             auth.createUserWithEmailAndPassword(email, password)
-                .addOnSuccessListener(this) {
-                    updateUserInfo()
+                .addOnCompleteListener(this) {
+                    if (it.isSuccessful) {
+                        updateUserInfo()
                     }
-                .addOnFailureListener(this){
+                }.addOnFailureListener(this){
                     progressBar(false)
                     Toast.makeText(this, "Register Failed", Toast.LENGTH_SHORT).show()
                 }
@@ -81,6 +82,7 @@ class RegisterActivity : AppCompatActivity() {
         ref.child(uid!!)
             .setValue(hashMap)
             .addOnSuccessListener {
+                berhasil(auth.currentUser)
                 Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
                 finish()
