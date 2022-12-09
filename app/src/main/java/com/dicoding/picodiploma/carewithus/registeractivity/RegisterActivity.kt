@@ -16,6 +16,7 @@ import com.dicoding.picodiploma.carewithus.databinding.ActivityRegisterBinding
 import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
 import com.dicoding.picodiploma.carewithus.utils.animateVisibility
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 
 class RegisterActivity : AppCompatActivity() {
@@ -49,11 +50,11 @@ class RegisterActivity : AppCompatActivity() {
 
         createAccount()
 
-        if (auth.currentUser != null) {
-            val intent = Intent(this@RegisterActivity, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        if (auth.currentUser != null) {
+//            val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
     }
 
     private fun createAccount() {
@@ -66,17 +67,22 @@ class RegisterActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) {
                     if (it.isSuccessful) {
                         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show()
-                        val user = auth.currentUser
+                        auth.signOut()
                         val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                        val profileUpdates =
-                            UserProfileChangeRequest.Builder().setDisplayName(username).build()
-                        user?.updateProfile(profileUpdates)
                         startActivity(intent)
                     } else {
+                        berhasil(null)
                         Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                         progressBar(false)
                     }
                 }
+        }
+    }
+
+    private fun berhasil(user: FirebaseUser?) {
+        if (user!=null){
+            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 
