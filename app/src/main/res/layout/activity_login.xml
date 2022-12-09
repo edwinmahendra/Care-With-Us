@@ -66,15 +66,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Hello" />
 
-    <TextView
+    <com.dicoding.picodiploma.carewithus.customview.EmailCustomView
         android:id="@+id/email_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="352dp"
+        android:layout_height="41dp"
         android:layout_marginTop="20dp"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtView1" />
+
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>
