@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.carewithus.customview.ButtonCustomView
 import com.dicoding.picodiploma.carewithus.customview.EmailCustomView
@@ -12,6 +13,9 @@ import com.dicoding.picodiploma.carewithus.customview.PasswordCustomView
 import com.dicoding.picodiploma.carewithus.customview.UsernameCustomView
 import com.dicoding.picodiploma.carewithus.databinding.ActivityRegisterBinding
 import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -20,12 +24,16 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var passwordCustomView: PasswordCustomView
     private lateinit var usernameCustomView: UsernameCustomView
     private lateinit var buttonCustomView: ButtonCustomView
+    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
         haveAccount()
+
+        auth = FirebaseAuth.getInstance()
 
         supportActionBar?.hide()
 
@@ -37,6 +45,31 @@ class RegisterActivity : AppCompatActivity() {
         usernameCustomView.addTextChangedListener(textChangedListener)
         emailCustomView.addTextChangedListener(textChangedListener)
         passwordCustomView.addTextChangedListener(textChangedListener)
+
+        createAccount()
+    }
+
+    private fun createAccount() {
+        binding.buttonRegister.setOnClickListener {
+            val username = binding.inputUsername.text.toString()
+            val email = binding.inputEmail.text.toString()
+            val password = binding.passwordLogin.text.toString()
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) {
+                    if (it.isSuccessful) {
+                        Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show()
+                        val user = auth.currentUser
+                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                        val profileUpdates = UserProfileChangeRequest.Builder().setDisplayName(username).build()
+                        user?.updateProfile(profileUpdates)
+                        updateUI(user)
+                        startActivity(intent)
+                    } else {
+                        updateUI(null)
+                        Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
     }
 
     private fun haveAccount() {
@@ -57,6 +90,7 @@ class RegisterActivity : AppCompatActivity() {
 
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
             val resultUsername = usernameCustomView.text.toString().trim()
+
             val resultEmail = emailCustomView.text.toString().trim()
             val resultPass = passwordCustomView.text.toString().trim()
             buttonCustomView.isEnabled =
@@ -64,6 +98,13 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         override fun afterTextChanged(s: Editable) {
+        }
+    }
+
+    private fun updateUI(currentUser: FirebaseUser?) {
+        if (currentUser != null) {
+            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+            finish()
         }
     }
 }

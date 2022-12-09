@@ -11,6 +11,7 @@ import com.dicoding.picodiploma.carewithus.customview.EmailCustomView
 import com.dicoding.picodiploma.carewithus.customview.PasswordCustomView
 import com.dicoding.picodiploma.carewithus.databinding.ActivityLoginBinding
 import com.dicoding.picodiploma.carewithus.registeractivity.RegisterActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
@@ -18,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var emailCustomView: EmailCustomView
     private lateinit var passwordCustomView: PasswordCustomView
     private lateinit var buttonCustomView: ButtonCustomView
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +36,9 @@ class LoginActivity : AppCompatActivity() {
         passwordCustomView.addTextChangedListener(textChangedListener)
 
         dhaveAccount()
+
     }
+
 
     private val textChangedListener = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
