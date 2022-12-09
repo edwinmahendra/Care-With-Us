@@ -67,7 +67,8 @@ class RegisterActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) {
                     if (it.isSuccessful) {
                         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show()
-                        auth.signOut()
+                        val user = auth.currentUser
+                        berhasil(user)
                         val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                         startActivity(intent)
                     } else {
@@ -81,8 +82,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun berhasil(user: FirebaseUser?) {
         if (user!=null){
-            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-            startActivity(intent)
+            auth.signOut()
         }
     }
 
