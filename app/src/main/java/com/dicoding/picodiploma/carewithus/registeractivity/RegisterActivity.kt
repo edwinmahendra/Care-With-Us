@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.carewithus.customview.ButtonCustomView
 import com.dicoding.picodiploma.carewithus.customview.EmailCustomView
 import com.dicoding.picodiploma.carewithus.customview.PasswordCustomView
+import com.dicoding.picodiploma.carewithus.customview.UsernameCustomView
 import com.dicoding.picodiploma.carewithus.databinding.ActivityRegisterBinding
 import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
 
@@ -17,6 +18,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var emailCustomView: EmailCustomView
     private lateinit var passwordCustomView: PasswordCustomView
+    private lateinit var usernameCustomView: UsernameCustomView
     private lateinit var buttonCustomView: ButtonCustomView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +32,9 @@ class RegisterActivity : AppCompatActivity() {
         emailCustomView = binding.inputEmail
         passwordCustomView = binding.passwordLogin
         buttonCustomView = binding.buttonRegister
+        usernameCustomView = binding.inputUsername
 
+        usernameCustomView.addTextChangedListener(textChangedListener)
         emailCustomView.addTextChangedListener(textChangedListener)
         passwordCustomView.addTextChangedListener(textChangedListener)
     }
@@ -52,9 +56,11 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            val resultUsername = usernameCustomView.text.toString().trim()
             val resultEmail = emailCustomView.text.toString().trim()
             val resultPass = passwordCustomView.text.toString().trim()
-            buttonCustomView.isEnabled = resultEmail.isNotEmpty() && resultPass.isNotEmpty()
+            buttonCustomView.isEnabled =
+                resultEmail.isNotEmpty() && resultPass.isNotEmpty() && resultUsername.isNotEmpty()
         }
 
         override fun afterTextChanged(s: Editable) {

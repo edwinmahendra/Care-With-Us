@@ -111,6 +111,7 @@
         android:layout_height="44dp"
         android:layout_marginTop="28dp"
         android:background="@color/color_2"
+        android:enabled="false"
         android:text="@string/btn_register"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
