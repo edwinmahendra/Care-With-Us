@@ -51,7 +51,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun createAccount() {
-
         binding.buttonRegister.setOnClickListener {
             val username = binding.inputUsername.text.toString()
             val email = binding.inputEmail.text.toString()
@@ -90,7 +89,6 @@ class RegisterActivity : AppCompatActivity() {
                 viewLoading.animateVisibility(false)
             }
         }
-
     }
 
     private fun haveAccount() {

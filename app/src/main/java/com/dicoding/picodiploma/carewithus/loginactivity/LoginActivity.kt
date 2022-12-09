@@ -1,17 +1,23 @@
 package com.dicoding.picodiploma.carewithus.loginactivity
 
 import android.app.ActivityOptions
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.picodiploma.carewithus.MainActivity
 import com.dicoding.picodiploma.carewithus.customview.ButtonCustomView
 import com.dicoding.picodiploma.carewithus.customview.EmailCustomView
 import com.dicoding.picodiploma.carewithus.customview.PasswordCustomView
 import com.dicoding.picodiploma.carewithus.databinding.ActivityLoginBinding
 import com.dicoding.picodiploma.carewithus.registeractivity.RegisterActivity
+import com.dicoding.picodiploma.carewithus.utils.animateVisibility
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class LoginActivity : AppCompatActivity() {
 
@@ -28,6 +34,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+        auth = FirebaseAuth.getInstance()
+
         emailCustomView = binding.emailLogin
         passwordCustomView = binding.passwordLogin
         buttonCustomView = binding.buttonLogin
@@ -36,9 +44,44 @@ class LoginActivity : AppCompatActivity() {
         passwordCustomView.addTextChangedListener(textChangedListener)
 
         dhaveAccount()
+        logginAccount()
 
     }
 
+    private fun logginAccount() {
+        binding.buttonLogin.setOnClickListener {
+            progressBar(true)
+            val email = binding.emailLogin.text.toString()
+            val password = binding.passwordLogin.text.toString()
+            if (email != "" && password != "") {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) {
+                        if (it.isSuccessful) {
+                            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                            val user = auth.currentUser
+                            updateUI(user)
+                        } else {
+                            Toast.makeText(this, "Login Unsuccessful", Toast.LENGTH_SHORT).show()
+                            Log.d(TAG, "${it.exception?.message}")
+                            progressBar(false)
+                        }
+                    }
+            } else {
+                Toast.makeText(
+                    baseContext, "Login failed.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                progressBar(false)
+            }
+        }
+    }
+
+    private fun updateUI(user: FirebaseUser?) {
+        if (user != null) {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            finish()
+        }
+    }
 
     private val textChangedListener = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
@@ -66,5 +109,17 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun progressBar(isLoading: Boolean) {
+        binding.apply {
+            emailLogin.isEnabled = !isLoading
+            passwordLogin.isEnabled = !isLoading
+            buttonRegister.isEnabled = !isLoading
 
+            if (isLoading) {
+                viewLoading.animateVisibility(true)
+            } else {
+                viewLoading.animateVisibility(false)
+            }
+        }
+    }
 }
