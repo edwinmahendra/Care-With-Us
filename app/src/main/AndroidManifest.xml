@@ -20,6 +20,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".admin.PdfListAdminActivity"
+            android:exported="false"/>
+        <activity
             android:name=".admin.AddCategoryActivity"
             android:exported="false" />
         <activity

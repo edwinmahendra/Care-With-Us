@@ -1,6 +1,7 @@
 package com.dicoding.picodiploma.carewithus.admin
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,6 +46,12 @@ class CategoryAdapter:RecyclerView.Adapter<CategoryAdapter.HolderCategory>, Filt
         holder.tvCategories.text = category
         holder.btnDelete.setOnClickListener{
             deleteCategory(model, holder)
+        }
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, PdfListAdminActivity::class.java)
+            intent.putExtra("categoryId",id)
+            intent.putExtra("category",category)
+            context.startActivity(intent)
         }
     }
 
