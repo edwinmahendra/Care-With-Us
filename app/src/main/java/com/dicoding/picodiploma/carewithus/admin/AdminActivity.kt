@@ -38,7 +38,6 @@ class AdminActivity : AppCompatActivity() {
         } else {
             val email = firebaseUser.email
             binding.emailAdmin.text = email
-
         }
     }
 

@@ -16,16 +16,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_admin"
-        app:layout_constraintVertical_bias="0.046" />
+        app:layout_constraintVertical_bias="0.946" />
 
     <TextView
         android:id="@+id/email_admin"
         android:layout_width="251dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:text="email"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/welcome_admin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintTop_toBottomOf="@+id/welcome_admin" />
 
     <TextView
@@ -33,11 +35,37 @@
         style="@style/Text.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         android:text="Welcome,"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689" />
+        app:layout_constraintTop_toBottomOf="@+id/search_bar" />
+
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="386dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints="Search"
+        android:background="@color/color_5"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:hint="Search"
+        android:inputType="text"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_categories"
+        android:layout_width="385dp"
+        android:layout_height="507dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/button_add_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_admin" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
