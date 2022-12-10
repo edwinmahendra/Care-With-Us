@@ -46,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
 
         emailCustomView.addTextChangedListener(textChangedListener)
         passwordCustomView.addTextChangedListener(textChangedListener)
-
         dhaveAccount()
         logginAccount()
 
@@ -60,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
                         if (userType == "user"){
                             startActivity(Intent(this@LoginActivity,MainActivity::class.java))
                             finish()
-                        }else if (userType =="admin"){
+                        }else if (userType == "admin"){
                             startActivity(Intent(this@LoginActivity, AdminActivity::class.java))
                             finish()
                         }
