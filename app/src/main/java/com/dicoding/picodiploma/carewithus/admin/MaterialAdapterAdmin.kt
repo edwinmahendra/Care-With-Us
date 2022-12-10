@@ -42,14 +42,14 @@ class MaterialAdapterAdmin : RecyclerView.Adapter<MaterialAdapterAdmin.HolderMat
         val categoryId = model.categoryId
         val title = model.title
         val description = model.description
-//        val cal = Calendar.getInstance(Locale.ENGLISH)
-//        cal.timeInMillis = model.timestamp
-//        val timestamp2 = DateFormat.format("dd/MM/yyyy", cal).toString()
-        val timestamp = model.timestamp
+        val cal = Calendar.getInstance(Locale.ENGLISH)
+        cal.timeInMillis = model.timestamp
+        val timestamp2 = DateFormat.format("dd/MM/yyyy", cal).toString()
+        val timestamp = timestamp2
         val imgMaterial = binding.imgMaterial
         holder.tvTitle.text = title
         holder.tvDescription.text = description
-//        holder.tvDate.text = timestamp
+        holder.tvDate.text = timestamp
 
         Helper.loadCategory(categoryId = categoryId, holder.tvCategory)
 
