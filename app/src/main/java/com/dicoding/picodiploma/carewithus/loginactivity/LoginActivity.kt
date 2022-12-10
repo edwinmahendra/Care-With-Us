@@ -51,9 +51,24 @@ class LoginActivity : AppCompatActivity() {
         logginAccount()
 
         if (auth.currentUser != null) {
-            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            val firebaseUser = auth.currentUser!!
+            val ref = FirebaseDatabase.getInstance().getReference("Users")
+            ref.child(firebaseUser.uid)
+                .addListenerForSingleValueEvent(object : ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot){
+                        val userType = snapshot.child("userType").value
+                        if (userType == "user"){
+                            startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                            finish()
+                        }else if (userType =="admin"){
+                            startActivity(Intent(this@LoginActivity, AdminActivity::class.java))
+                            finish()
+                        }
+                    }
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+                })
         }
     }
 
