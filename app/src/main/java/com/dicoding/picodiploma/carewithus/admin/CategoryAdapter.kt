@@ -19,11 +19,12 @@ class CategoryAdapter:RecyclerView.Adapter<CategoryAdapter.HolderCategory>, Filt
 
 
 
-    constructor(context: Context, categoryArrayList: ArrayList<CategoryModel>){
+    constructor(context: Context, categoryArrayList: ArrayList<CategoryModel>): super(){
         this.context = context
         this.categoryArrayList = categoryArrayList
         this.filterList = categoryArrayList
     }
+
     inner class HolderCategory(itemView: View): RecyclerView.ViewHolder(itemView){
         var tvCategories: TextView = binding.tvItemCategories
         var btnDelete: ImageButton = binding.btnDelete

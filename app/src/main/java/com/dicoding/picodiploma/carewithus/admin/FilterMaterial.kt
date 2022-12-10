@@ -6,7 +6,7 @@ class FilterMaterial: Filter {
     var filterList: ArrayList<ModelMaterial>
     var adapterMaterialAdmin: MaterialAdapterAdmin
 
-    constructor(filterList: ArrayList<ModelMaterial>, adapterMaterialAdmin: MaterialAdapterAdmin){
+    constructor(filterList: ArrayList<ModelMaterial>, adapterMaterialAdmin: MaterialAdapterAdmin): super(){
         this.filterList = filterList
         this.adapterMaterialAdmin = adapterMaterialAdmin
     }
@@ -16,12 +16,15 @@ class FilterMaterial: Filter {
         val result = FilterResults()
         if(constraint != null && constraint.isNotEmpty()) {
             constraint = constraint.toString().lowercase()
-            var filteredModels = ArrayList<ModelMaterial>()
-            for (i in filterList.indices){
+            val filteredModels: ArrayList<ModelMaterial> = ArrayList()
+            for (i in 0 until filterList.size){
                 if(filterList[i].title.lowercase().contains(constraint)){
                     filteredModels.add(filterList[i])
                 }
             }
+            result.count = filteredModels.size
+            result.values = filteredModels
+        } else {
             result.count = filterList.size
             result.values = filterList
         }

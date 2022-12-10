@@ -21,15 +21,13 @@ class MaterialAdapterAdmin : RecyclerView.Adapter<MaterialAdapterAdmin.HolderMat
     public var materialArrayList: ArrayList<ModelMaterial>
     private lateinit var  binding: ItemMaterialAdminBinding
     private val filterList:ArrayList<ModelMaterial>
-    var filter: FilterMaterial? = null
+    private var filter: FilterMaterial? = null
 
     constructor(context: Context, materialArrayList: ArrayList<ModelMaterial>): super(){
         this.context = context
         this.materialArrayList = materialArrayList
         this.filterList = materialArrayList
     }
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderMaterialAdmin {
         binding = ItemMaterialAdminBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -65,6 +63,7 @@ class MaterialAdapterAdmin : RecyclerView.Adapter<MaterialAdapterAdmin.HolderMat
         }
         return filter as FilterMaterial
     }
+
     inner class  HolderMaterialAdmin(itemView: View): RecyclerView.ViewHolder(itemView){
         val imgMaterial = binding.imgMaterial
         val progressBar = binding.progressBar
