@@ -1,15 +1,13 @@
 package com.dicoding.picodiploma.carewithus.loginactivity
 
 import android.app.ActivityOptions
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.dicoding.picodiploma.carewithus.AdminActivity
+import com.dicoding.picodiploma.carewithus.admin.AdminActivity
 import com.dicoding.picodiploma.carewithus.MainActivity
 import com.dicoding.picodiploma.carewithus.customview.ButtonCustomView
 import com.dicoding.picodiploma.carewithus.customview.EmailCustomView
