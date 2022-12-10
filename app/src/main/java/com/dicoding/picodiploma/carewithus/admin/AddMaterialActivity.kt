@@ -70,29 +70,30 @@ class AddMaterialActivity : AppCompatActivity() {
         } else if (category.isEmpty()) {
             Toast.makeText(this, "Pick Category", Toast.LENGTH_SHORT).show()
         } else {
-            uploadPdfStorage()
+            uploadPdfIntoDb()
         }
     }
 
-    private fun uploadPdfStorage() {
+//    private fun uploadPdfStorage() {
+//        val timestamp = System.currentTimeMillis()
+//        val filePathAndName = "Books/$timestamp"
+//        val storageReference = FirebaseStorage.getInstance().getReference(filePathAndName)
+//        storageReference.putFile(pdfUri!!)
+//            .addOnSuccessListener {taskSnapshot ->
+//                Log.d(TAG, "uploaded now")
+//
+//                val uriTask: Task<Uri> = taskSnapshot.storage.downloadUrl
+//                while (!uriTask.isSuccessful);
+//                val uploadedPdf = "${uriTask.result}"
+//                uploadPdfIntoDb(uploadedPdf, timestamp)
+//            }
+//            .addOnFailureListener {e ->
+//                Toast.makeText(this, " File Storage Failed to upload due to ${e.message}", Toast.LENGTH_SHORT).show()
+//            }
+//    }
+
+    private fun uploadPdfIntoDb() {
         val timestamp = System.currentTimeMillis()
-        val filePathAndName = "Books/$timestamp"
-        val storageReference = FirebaseStorage.getInstance().getReference(filePathAndName)
-        storageReference.putFile(pdfUri!!)
-            .addOnSuccessListener {taskSnapshot ->
-                Log.d(TAG, "uploaded now")
-
-                val uriTask: Task<Uri> = taskSnapshot.storage.downloadUrl
-                while (!uriTask.isSuccessful);
-                val uploadedPdf = "${uriTask.result}"
-                uploadPdfIntoDb(uploadedPdf, timestamp)
-            }
-            .addOnFailureListener {e ->
-                Toast.makeText(this, "Failed to upload due to ${e.message}", Toast.LENGTH_SHORT).show()
-            }
-    }
-
-    private fun uploadPdfIntoDb(uploadedPdf: String, timestamp: Long) {
         val uid = auth.uid
         val hashMap: HashMap<String, Any> = HashMap()
         hashMap["uid"] = "$uid"
@@ -100,7 +101,6 @@ class AddMaterialActivity : AppCompatActivity() {
         hashMap["title"] = "$title"
         hashMap["description"] = "$description"
         hashMap["categoryId"] = "$selectedCategoryId"
-        hashMap["url"] = "$uploadedPdf"
         hashMap["timestamp"] = "$timestamp"
 
         val ref = FirebaseDatabase.getInstance().getReference("Books")
@@ -112,7 +112,6 @@ class AddMaterialActivity : AppCompatActivity() {
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Failed upload due to ${e.message}", Toast.LENGTH_SHORT).show()
-
             }
     }
 
