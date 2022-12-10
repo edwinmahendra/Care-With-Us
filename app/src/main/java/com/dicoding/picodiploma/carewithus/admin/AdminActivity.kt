@@ -56,6 +56,11 @@ class AdminActivity : AppCompatActivity() {
         binding.buttonAddCategory.setOnClickListener{
             startActivity(Intent(this@AdminActivity, AddCategoryActivity::class.java))
         }
+
+        binding.buttonAddMaterial.setOnClickListener{
+            startActivity(Intent(this@AdminActivity, AddMaterialActivity::class.java))
+        }
+
     }
 
     private fun loadCategories() {

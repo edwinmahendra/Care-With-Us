@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.AddMaterialActivity">
+
+    <EditText
+        android:id="@+id/title_material"
+        android:layout_width="368dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="220dp"
+        android:autofillHints="Title"
+        android:drawableStart="@drawable/ic_baseline_feed_24"
+        android:hint="Title"
+        android:inputType="textMultiLine|textCapSentences"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/description_material"
+        android:layout_width="368dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="Title"
+        android:drawableStart="@drawable/ic_baseline_closed_caption_24"
+        android:hint="Description"
+        android:inputType="textMultiLine|textCapSentences"
+        android:padding="10dp"
+        android:textColor="@color/black"
+
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_material" />
+
+    <TextView
+        android:id="@+id/category_material"
+        android:layout_width="368dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="Title"
+        android:hint="Category"
+        android:inputType="textMultiLine|textCapSentences"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description_material"
+        app:drawableEndCompat="@drawable/ic_baseline_expand_more_24"
+        app:drawableStartCompat="@drawable/ic_baseline_category_24" />
+
+    <Button
+        android:id="@+id/add_category"
+        android:layout_width="370dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="40dp"
+        android:text="Add Material"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_material"
+        app:layout_constraintVertical_bias="0.181" />
+
+    <ImageButton
+        android:id="@+id/attachFile"
+        android:layout_width="53dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_attach_file_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="attachment" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
