@@ -1,10 +1,11 @@
-package com.dicoding.picodiploma.carewithus
+package com.dicoding.picodiploma.carewithus.admin
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.dicoding.picodiploma.carewithus.R
 import com.dicoding.picodiploma.carewithus.databinding.ActivityAdminBinding
 import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +24,10 @@ class AdminActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         checkUser()
+
+        binding.buttonAddCategory.setOnClickListener{
+            startActivity(Intent(this@AdminActivity, AddCategoryActivity::class.java))
+        }
     }
 
     private fun checkUser() {
