@@ -19,7 +19,7 @@ class Helper: Application() {
             ref.child(categoryId)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        val category: String = "${snapshot.child("category").value}"
+                        val category = "${snapshot.child("category").value}"
                         categoryTv.text = category
                     }
 

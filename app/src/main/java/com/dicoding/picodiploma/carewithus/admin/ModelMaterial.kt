@@ -11,17 +11,7 @@ class ModelMaterial {
 
 
     constructor()
-    constructor(
-        categoryId: String,
-        description: String,
-        id: String,
-        timestamp: Long,
-        title: String,
-        uid: String,
-
-
-
-        ) {
+    constructor(categoryId: String, description: String, id: String, timestamp: Long, title: String, uid: String ) {
         this.uid = uid
         this.id = id
         this.title = title

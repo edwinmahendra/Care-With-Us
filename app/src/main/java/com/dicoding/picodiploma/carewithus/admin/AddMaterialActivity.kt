@@ -101,7 +101,7 @@ class AddMaterialActivity : AppCompatActivity() {
         hashMap["title"] = "$title"
         hashMap["description"] = "$description"
         hashMap["categoryId"] = "$selectedCategoryId"
-        hashMap["timestamp"] = "$timestamp"
+        hashMap["timestamp"] = timestamp
 
         val ref = FirebaseDatabase.getInstance().getReference("Books")
         ref.child("$timestamp")
