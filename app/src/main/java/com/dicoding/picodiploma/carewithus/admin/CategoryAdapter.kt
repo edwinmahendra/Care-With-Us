@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.carewithus.databinding.ItemRowCategoriesBinding
-import com.google.android.material.transition.Hold
 import com.google.firebase.database.FirebaseDatabase
-import org.w3c.dom.Text
 
 class CategoryAdapter:RecyclerView.Adapter<CategoryAdapter.HolderCategory>, Filterable {
     private val context: Context
@@ -48,7 +46,7 @@ class CategoryAdapter:RecyclerView.Adapter<CategoryAdapter.HolderCategory>, Filt
             deleteCategory(model, holder)
         }
         holder.itemView.setOnClickListener{
-            val intent = Intent(context, PdfListAdminActivity::class.java)
+            val intent = Intent(context, MaterialListAdminActivity::class.java)
             intent.putExtra("categoryId",id)
             intent.putExtra("category",category)
             context.startActivity(intent)

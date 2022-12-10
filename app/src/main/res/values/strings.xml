@@ -19,4 +19,5 @@
     <string name="log_here">Login here</string>
     <string name="logout_btn">Logout</string>
     <string name="add_category">Add Category</string>
+    <string name="the_description">The description</string>
 </resources>

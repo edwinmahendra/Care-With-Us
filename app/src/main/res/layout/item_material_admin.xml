@@ -12,16 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
-            android:id="@+id/pdfRl"
+            android:id="@+id/materialRl"
             android:layout_width="100dp"
             android:layout_height="140dp"
             android:layout_marginTop="5dp"
             android:background="@color/color_2">
 
-            <com.github.barteksc.pdfviewer.PDFView
-                android:id="@+id/pdfView"
+            <ImageView
+                android:id="@+id/imgMaterial"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                />
+                
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -35,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TextAppearance.MaterialComponents.Headline6"
-            android:layout_toEndOf="@id/pdfRl"
+            android:layout_toEndOf="@id/materialRl"
             android:maxLines="1"
             android:text="The Book Title"
             android:ellipsize="end"/>
@@ -45,10 +47,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_more_vert_24"
-            android:background="none"
+            android:background="@android:color/transparent"
             android:padding="5dp"
             android:layout_alignParentEnd="true"/>
 
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTitle"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/materialRl"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:text="@string/the_description" />
+
+        <TextView
+            android:id="@+id/tvCategory"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:maxLines="1"
+            android:text="category"/>
+
+        <TextView
+            android:id="@+id/tvDate"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/materialRl"
+            android:maxLines="1"
+            android:text="dd/MM/yyyy"
+            android:textAlignment="center"/>
 
 
 
