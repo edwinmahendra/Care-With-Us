@@ -6,28 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".admin.AdminActivity">
 
-    <!--    <TextView-->
-<!--        android:id="@+id/email_admin"-->
-<!--        android:layout_width="251dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="4dp"-->
-<!--        android:text="email"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintStart_toStartOf="@id/welcome_admin"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/welcome_admin" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/welcome_admin"-->
-<!--        style="@style/Text.Title"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="12dp"-->
-<!--        android:text="Welcome,"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.045"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/search_bar" />-->
-
     <Button
         android:id="@+id/button_add_category"
         android:layout_width="189dp"
@@ -39,6 +17,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_categories"
         app:layout_constraintVertical_bias="0.0" />
+
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/black">
+        <ImageButton
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_logout_24"
+            android:background="@android:color/transparent"
+            android:layout_alignParentEnd="true"
+            android:padding="10dp"
+            android:layout_marginRight="5dp"/>
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Books"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_centerHorizontal="true"
+            android:text="Category"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/button_add_material"
@@ -62,11 +79,12 @@
         android:background="@color/color_5"
         android:drawableStart="@drawable/ic_baseline_search_24"
         android:hint="Search"
+        android:padding="5dp"
         android:inputType="text"
-        android:padding="10dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbarRl" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_categories"

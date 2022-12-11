@@ -36,6 +36,13 @@ class AdminActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         checkUser()
 
+        binding.btnLogout.setOnClickListener {
+            auth.signOut()
+            startActivity(Intent(this@AdminActivity, LoginActivity::class.java))
+            finish()
+        }
+
+
         binding.searchBar.addTextChangedListener(object: TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }

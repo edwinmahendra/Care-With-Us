@@ -14,6 +14,7 @@ import com.dicoding.picodiploma.carewithus.customview.EmailCustomView
 import com.dicoding.picodiploma.carewithus.customview.PasswordCustomView
 import com.dicoding.picodiploma.carewithus.databinding.ActivityLoginBinding
 import com.dicoding.picodiploma.carewithus.registeractivity.RegisterActivity
+import com.dicoding.picodiploma.carewithus.user.UserActivity
 import com.dicoding.picodiploma.carewithus.utils.animateVisibility
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -55,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
                     override fun onDataChange(snapshot: DataSnapshot){
                         val userType = snapshot.child("userType").value
                         if (userType == "user"){
-                            startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                            startActivity(Intent(this@LoginActivity,UserActivity::class.java))
                             finish()
                         }else if (userType == "admin"){
                             startActivity(Intent(this@LoginActivity, AdminActivity::class.java))
@@ -97,7 +98,7 @@ class LoginActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot){
                     val userType = snapshot.child("userType").value
                     if (userType == "user"){
-                        startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, UserActivity::class.java))
                         finish()
                     }else if (userType =="admin"){
                         startActivity(Intent(this@LoginActivity, AdminActivity::class.java))

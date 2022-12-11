@@ -22,9 +22,9 @@
              android:layout_alignParentTop="true"
              android:layout_alignParentEnd="true"
              android:layout_marginStart="13dp"
-             android:layout_marginTop="72dp"
-             android:layout_marginEnd="316dp"
-             android:text="Material Title" />
+             android:layout_marginTop="40dp"
+             android:text="Material Title"
+             android:textSize="12pt" />
 
          <TextView
              android:id="@+id/categoryTv"
@@ -35,7 +35,7 @@
              android:layout_alignParentEnd="true"
              android:layout_marginStart="14dp"
              android:layout_marginTop="7dp"
-             android:layout_marginEnd="339dp"
+             android:textSize="8pt"
              android:text="Category" />
 
          <TextView
@@ -47,7 +47,6 @@
              android:layout_alignParentEnd="true"
              android:layout_marginStart="14dp"
              android:layout_marginTop="8dp"
-             android:layout_marginEnd="338dp"
              android:text="Date" />
 
          <TextView

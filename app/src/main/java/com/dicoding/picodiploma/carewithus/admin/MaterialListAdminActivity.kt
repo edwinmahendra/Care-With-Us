@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.carewithus.admin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -7,6 +8,7 @@ import android.text.TextWatcher
 import com.dicoding.picodiploma.carewithus.R
 import com.dicoding.picodiploma.carewithus.databinding.ActivityAdminBinding
 import com.dicoding.picodiploma.carewithus.databinding.ActivityMaterialListAdminBinding
+import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -31,6 +33,12 @@ class MaterialListAdminActivity : AppCompatActivity() {
 
         binding.tvSubtitle.text = category
         loadMateriallist()
+
+        binding.backBtn.setOnClickListener {
+            startActivity(Intent(this@MaterialListAdminActivity, LoginActivity::class.java))
+            finish()
+        }
+
         binding.searchBar.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
