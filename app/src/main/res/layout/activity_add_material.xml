@@ -10,7 +10,7 @@
         android:id="@+id/title_material"
         android:layout_width="368dp"
         android:layout_height="48dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="52dp"
         android:autofillHints="Title"
         android:drawableStart="@drawable/ic_baseline_feed_24"
         android:hint="Title"
@@ -27,18 +27,18 @@
         android:id="@+id/description_material"
         android:layout_width="368dp"
         android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:autofillHints="Title"
+        android:layout_marginTop="13dp"
+        android:importantForAutofill="no"
         android:drawableStart="@drawable/ic_baseline_closed_caption_24"
         android:hint="Description"
-        android:inputType="textMultiLine|textCapSentences"
+        android:inputType="textMultiLine"
         android:padding="10dp"
-        android:textColor="@color/black"
 
+        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_material" />
+        app:layout_constraintTop_toBottomOf="@+id/category_material" />
 
     <TextView
         android:id="@+id/category_material"
@@ -48,37 +48,26 @@
         android:autofillHints="Title"
         android:hint="Category"
         android:inputType="textMultiLine|textCapSentences"
-        android:padding="10dp"
+
+        android:padding="11dp"
         android:textColor="@color/black"
+
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/ic_baseline_expand_more_24"
+        app:drawableStartCompat="@drawable/ic_baseline_category_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description_material"
-        app:drawableEndCompat="@drawable/ic_baseline_expand_more_24"
-        app:drawableStartCompat="@drawable/ic_baseline_category_24" />
+        app:layout_constraintTop_toBottomOf="@+id/title_material" />
 
     <Button
         android:id="@+id/add_category"
         android:layout_width="370dp"
         android:layout_height="58dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="16dp"
         android:text="Add Material"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_material"
-        app:layout_constraintVertical_bias="0.181" />
-
-    <ImageButton
-        android:id="@+id/attachFile"
-        android:layout_width="53dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="attachment"
-        android:src="@drawable/ic_baseline_attach_file_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

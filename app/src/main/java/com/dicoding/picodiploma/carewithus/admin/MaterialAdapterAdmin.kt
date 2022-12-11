@@ -46,7 +46,6 @@ class MaterialAdapterAdmin : RecyclerView.Adapter<MaterialAdapterAdmin.HolderMat
         cal.timeInMillis = model.timestamp
         val timestamp2 = DateFormat.format("dd/MM/yyyy", cal).toString()
         val timestamp = timestamp2
-        val imgMaterial = binding.imgMaterial
         holder.tvTitle.text = title
         holder.tvDescription.text = description
         holder.tvDate.text = timestamp
@@ -97,8 +96,6 @@ class MaterialAdapterAdmin : RecyclerView.Adapter<MaterialAdapterAdmin.HolderMat
     }
 
     inner class  HolderMaterialAdmin(itemView: View): RecyclerView.ViewHolder(itemView){
-        val imgMaterial = binding.imgMaterial
-        val progressBar = binding.progressBar
         val tvTitle = binding.tvTitle
         val tvDescription = binding.tvDescription
         val tvCategory = binding.tvCategory

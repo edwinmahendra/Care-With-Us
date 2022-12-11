@@ -10,7 +10,7 @@
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1765" />
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/font/font.xml" value="0.37395833333333334" />
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/activity_add_category.xml" value="0.264" />
-        <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/activity_add_material.xml" value="0.4" />
+        <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/activity_add_material.xml" value="0.2" />
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/activity_admin.xml" value="0.176" />
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/activity_detail_material.xml" value="0.4" />
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/activity_favorite.xml" value="0.291213768115942" />
@@ -20,7 +20,8 @@
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/activity_material_edit.xml" value="0.4" />
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/activity_material_list_admin.xml" value="0.32916666666666666" />
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/activity_register.xml" value="0.136" />
-        <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/item_material_admin.xml" value="0.32916666666666666" />
+        <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/activity_splash_screen_activity.xml" value="0.2" />
+        <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/item_material_admin.xml" value="0.176" />
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/item_row_categories.xml" value="0.4" />
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/layout/item_row_material_fav.xml" value="0.264" />
         <entry key="..\:/EDWIN/KULIAH/SEMESTER 5/DICODING/CAPSTONE/Care-With-Us/app/src/main/res/menu/option_menu.xml" value="0.2" />

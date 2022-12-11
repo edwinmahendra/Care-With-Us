@@ -43,10 +43,6 @@ class AddMaterialActivity : AppCompatActivity() {
             categoryPickDialog()
         }
 
-        binding.attachFile.setOnClickListener {
-            materialPickIntent()
-        }
-
         binding.addCategory.setOnClickListener{
             validateData()
         }
@@ -141,23 +137,4 @@ class AddMaterialActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun materialPickIntent() {
-        Log.d(TAG, "materialIntent")
-        val intent = Intent()
-        intent.type = "application/pdf"
-        intent.action = Intent.ACTION_GET_CONTENT
-        pdfActivityResultLauncher.launch(intent)
-    }
-
-    val pdfActivityResultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult(),
-        ActivityResultCallback<ActivityResult> {
-            result ->
-            if (result.resultCode == RESULT_OK) {
-                pdfUri = result.data!!.data
-            } else {
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show()
-            }
-        }
-    )
 }

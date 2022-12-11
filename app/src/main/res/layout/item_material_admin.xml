@@ -11,25 +11,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:id="@+id/materialRl"
             android:layout_width="100dp"
             android:layout_height="140dp"
             android:layout_marginTop="5dp"
-            android:background="@color/color_2">
-
-            <ImageView
-                android:id="@+id/imgMaterial"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </RelativeLayout>
+            android:background="@color/color_2" />
 
         <TextView
             android:id="@+id/tvTitle"
