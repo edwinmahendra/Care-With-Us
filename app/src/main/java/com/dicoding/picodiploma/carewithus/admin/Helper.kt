@@ -37,7 +37,6 @@ class Helper: Application() {
 
                     override fun onCancelled(error: DatabaseError) {
                     }
-
                 })
         }
 

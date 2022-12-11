@@ -58,16 +58,35 @@
              android:layout_alignParentStart="true"
              android:layout_alignParentEnd="true"
              android:layout_alignParentBottom="true"
-             android:layout_marginStart="25dp"
-             android:layout_marginTop="42dp"
-             android:layout_marginEnd="15dp"
-             android:layout_marginBottom="-4dp"
+             android:layout_marginStart="20dp"
+             android:layout_marginTop="101dp"
+             android:layout_marginEnd="20dp"
+             android:layout_marginBottom="110dp"
              android:text="Material Description" />
+
+         <com.google.android.material.floatingactionbutton.FloatingActionButton
+             android:id="@+id/fabFav"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentStart="true"
+             android:layout_alignParentTop="true"
+             android:layout_alignParentEnd="true"
+             android:layout_alignParentBottom="true"
+             android:clickable="true"
+             android:layout_marginStart="340dp"
+             android:layout_marginTop="622dp"
+             android:layout_marginEnd="15dp"
+             android:layout_marginBottom="-2dp"
+             android:backgroundTint="@color/color_1"
+             android:contentDescription="TODO"
+             android:focusable="true"
+             app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
 
      </RelativeLayout>
 
- </ScrollView>
 
+
+ </ScrollView>
 
 
 </RelativeLayout>
