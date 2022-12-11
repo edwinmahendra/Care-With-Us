@@ -21,35 +21,34 @@
             <ImageView
                 android:id="@+id/imgMaterial"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
-                
+                android:layout_height="match_parent" />
+
 
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
         </RelativeLayout>
 
         <TextView
             android:id="@+id/tvTitle"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_toEndOf="@id/materialRl"
+            android:ellipsize="end"
             android:maxLines="1"
-            android:text="The Book Title"
-            android:ellipsize="end"/>
+            android:text="The Book Title" />
 
         <ImageButton
             android:id="@+id/btnMore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_more_vert_24"
+            android:layout_alignParentEnd="true"
             android:background="@android:color/transparent"
             android:padding="5dp"
-            android:layout_alignParentEnd="true"/>
+            android:src="@drawable/ic_baseline_more_vert_24" />
 
         <TextView
             android:id="@+id/tvDescription"
@@ -71,7 +70,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:maxLines="1"
-            android:text="category"/>
+            android:text="category" />
 
         <TextView
             android:id="@+id/tvDate"
@@ -82,7 +81,7 @@
             android:layout_toEndOf="@id/materialRl"
             android:maxLines="1"
             android:text="dd/MM/yyyy"
-            android:textAlignment="center"/>
+            android:textAlignment="center" />
 
 
 

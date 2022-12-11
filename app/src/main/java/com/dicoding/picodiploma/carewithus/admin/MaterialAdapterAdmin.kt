@@ -1,12 +1,14 @@
 package com.dicoding.picodiploma.carewithus.admin
 
 import android.content.Context
+import android.content.Intent
 import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.carewithus.databinding.ItemMaterialAdminBinding
@@ -51,6 +53,36 @@ class MaterialAdapterAdmin : RecyclerView.Adapter<MaterialAdapterAdmin.HolderMat
 
         Helper.loadCategory(categoryId = categoryId, holder.tvCategory)
 
+        holder.btnMore.setOnClickListener{
+            moreOptionsDialog(model, holder)
+        }
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, DetailMaterialActivity::class.java)
+            intent.putExtra("bookId", materialId)
+            context.startActivity(intent)
+        }
+
+
+    }
+
+    private fun moreOptionsDialog(model: ModelMaterial, holder: MaterialAdapterAdmin.HolderMaterialAdmin) {
+        val materialId = model.id
+        val materialTitle = model.title
+        val option = arrayOf("Edit", "Delete")
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Choose Option")
+            .setItems(option){dialog, position ->
+                if(position == 0) {
+                    val intent = Intent(context, MaterialEditActivity::class.java)
+                    intent.putExtra("materialId", materialId)
+                    context.startActivity(intent)
+                }
+                else if (position == 1) {
+                    Helper.deleteBook(context, materialId, materialTitle)
+                }
+            }
+            .show()
     }
 
     override fun getItemCount(): Int {

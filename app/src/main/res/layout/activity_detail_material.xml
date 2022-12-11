@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.DetailMaterialActivity">
+
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+         <TextView
+             android:id="@+id/materialTitle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentStart="true"
+             android:layout_alignParentTop="true"
+             android:layout_alignParentEnd="true"
+             android:layout_marginStart="13dp"
+             android:layout_marginTop="72dp"
+             android:layout_marginEnd="316dp"
+             android:text="Material Title" />
+
+         <TextView
+             android:id="@+id/categoryTv"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/materialTitle"
+             android:layout_alignParentStart="true"
+             android:layout_alignParentEnd="true"
+             android:layout_marginStart="14dp"
+             android:layout_marginTop="7dp"
+             android:layout_marginEnd="339dp"
+             android:text="Category" />
+
+         <TextView
+             android:id="@+id/dateTv"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/categoryTv"
+             android:layout_alignParentStart="true"
+             android:layout_alignParentEnd="true"
+             android:layout_marginStart="14dp"
+             android:layout_marginTop="8dp"
+             android:layout_marginEnd="338dp"
+             android:text="Date" />
+
+         <TextView
+             android:id="@+id/description_material"
+             android:layout_width="371dp"
+             android:layout_height="321dp"
+             android:layout_below="@+id/dateTv"
+             android:layout_alignParentStart="true"
+             android:layout_alignParentEnd="true"
+             android:layout_alignParentBottom="true"
+             android:layout_marginStart="25dp"
+             android:layout_marginTop="42dp"
+             android:layout_marginEnd="15dp"
+             android:layout_marginBottom="-4dp"
+             android:text="Material Description" />
+
+     </RelativeLayout>
+
+ </ScrollView>
+
+
+
+</RelativeLayout>

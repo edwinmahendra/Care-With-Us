@@ -52,6 +52,7 @@ class CategoryAdapter:RecyclerView.Adapter<CategoryAdapter.HolderCategory>, Filt
             intent.putExtra("category",category)
             context.startActivity(intent)
         }
+
     }
 
     private fun deleteCategory(model: CategoryModel, holder: HolderCategory) {
