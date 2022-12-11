@@ -17,8 +17,6 @@ class CategoryAdapter:RecyclerView.Adapter<CategoryAdapter.HolderCategory>, Filt
     private var filterList: ArrayList<CategoryModel>
     private var filter: FilterCategory? = null
 
-
-
     constructor(context: Context, categoryArrayList: ArrayList<CategoryModel>): super(){
         this.context = context
         this.categoryArrayList = categoryArrayList

@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CareWithUs"
         tools:targetApi="31">
         <activity
+            android:name=".favorite.FavoriteActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.DetailMaterialActivity"
             android:exported="false" />
         <activity

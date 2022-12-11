@@ -74,24 +74,6 @@ class AddMaterialActivity : AppCompatActivity() {
         }
     }
 
-//    private fun uploadPdfStorage() {
-//        val timestamp = System.currentTimeMillis()
-//        val filePathAndName = "Books/$timestamp"
-//        val storageReference = FirebaseStorage.getInstance().getReference(filePathAndName)
-//        storageReference.putFile(pdfUri!!)
-//            .addOnSuccessListener {taskSnapshot ->
-//                Log.d(TAG, "uploaded now")
-//
-//                val uriTask: Task<Uri> = taskSnapshot.storage.downloadUrl
-//                while (!uriTask.isSuccessful);
-//                val uploadedPdf = "${uriTask.result}"
-//                uploadPdfIntoDb(uploadedPdf, timestamp)
-//            }
-//            .addOnFailureListener {e ->
-//                Toast.makeText(this, " File Storage Failed to upload due to ${e.message}", Toast.LENGTH_SHORT).show()
-//            }
-//    }
-
     private fun uploadPdfIntoDb() {
         val timestamp = System.currentTimeMillis()
         val uid = auth.uid

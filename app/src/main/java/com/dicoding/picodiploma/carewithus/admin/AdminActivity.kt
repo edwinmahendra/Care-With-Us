@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.widget.CalendarView
 import com.dicoding.picodiploma.carewithus.R
 import com.dicoding.picodiploma.carewithus.databinding.ActivityAdminBinding
+import com.dicoding.picodiploma.carewithus.favorite.FavoriteActivity
 import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -77,7 +78,6 @@ class AdminActivity : AppCompatActivity() {
                 binding.rvCategories.adapter = adapterCategory
             }
             override fun onCancelled(error: DatabaseError){
-
             }
         })
 
@@ -101,14 +101,16 @@ class AdminActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.menu_fav -> {
+                startActivity(Intent(this, FavoriteActivity::class.java))
+                true
+            }
             R.id.menu_logout -> {
                 auth.signOut()
                 checkUser()
-
                 true
             }
             else -> {
-                super.onOptionsItemSelected(item)
                 true
             }
         }
