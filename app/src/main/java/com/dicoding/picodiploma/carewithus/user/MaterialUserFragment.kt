@@ -65,26 +65,6 @@ class MaterialUserFragment : Fragment {
         else{
             loadCategorizedMaterials()
         }
-
-        binding.searchBar.addTextChangedListener {object :TextWatcher  {
-            override fun beforeTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                try{
-                    adapterMaterialUser.filter!!.filter(s)
-                }
-                catch (e: Exception){
-
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                TODO("Not yet implemented")
-            }
-
-        } }
         return binding.root
     }
 

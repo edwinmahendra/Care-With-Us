@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.carewithus.user
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -15,6 +17,7 @@ import com.dicoding.picodiploma.carewithus.R
 import com.dicoding.picodiploma.carewithus.admin.CategoryModel
 import com.dicoding.picodiploma.carewithus.admin.ModelMaterial
 import com.dicoding.picodiploma.carewithus.databinding.ActivityUserBinding
+import com.dicoding.picodiploma.carewithus.favorite.FavoriteActivity
 import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -40,10 +43,27 @@ class UserActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        binding.btnLogout.setOnClickListener{
-            auth.signOut()
-            startActivity(Intent(this@UserActivity, LoginActivity::class.java))
+        binding.btnFav.setOnClickListener {
+            startActivity(Intent(this@UserActivity,FavoriteActivity::class.java))
             finish()
+        }
+
+        binding.btnLogout.setOnClickListener {
+            val exitDialog = AlertDialog.Builder(this)
+            exitDialog.setTitle("Log Out")
+            exitDialog.setMessage("Apakah anda ingin Log Out ?")
+            exitDialog.setPositiveButton(android.R.string.yes) { _, _ ->
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                auth.signOut()
+                startActivity(intent)
+                finish()
+            }
+            exitDialog.setNegativeButton(android.R.string.no) { _, _ ->
+                Toast.makeText(applicationContext,
+                    android.R.string.no, Toast.LENGTH_SHORT).show()
+            }
+            exitDialog.show()
         }
 
     }
@@ -129,22 +149,5 @@ class UserActivity : AppCompatActivity() {
             binding.tvSubtitle.text = email
         }
     }
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.option_menu, menu)
-        return true
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.btn_logout -> {
-                auth.signOut()
-                startActivity(Intent(this, LoginActivity::class.java))
-                finish()
-                return true
-            }
-            else -> return true
-        }
-
-    }
 }

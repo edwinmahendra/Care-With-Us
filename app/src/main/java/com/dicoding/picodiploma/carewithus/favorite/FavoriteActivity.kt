@@ -1,11 +1,13 @@
 package com.dicoding.picodiploma.carewithus.favorite
 
+import android.content.Intent
 import android.graphics.ColorSpace
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dicoding.picodiploma.carewithus.R
 import com.dicoding.picodiploma.carewithus.admin.ModelMaterial
 import com.dicoding.picodiploma.carewithus.databinding.ActivityFavoriteBinding
+import com.dicoding.picodiploma.carewithus.user.UserActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -27,6 +29,11 @@ class FavoriteActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         loadFavoriteBooks()
 
+    }
+
+    override fun onBackPressed() {
+        startActivity(Intent(this@FavoriteActivity, UserActivity::class.java))
+        finish()
     }
 
     private fun loadFavoriteBooks() {

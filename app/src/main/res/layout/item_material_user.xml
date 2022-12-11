@@ -19,32 +19,26 @@
         style="@style/TextAppearance.MaterialComponents.Headline6"
         android:text="Book Title"
         android:ellipsize="end"/>
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_below="@id/tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:layout_marginTop="8dp"
-            android:maxLines="4"
-            android:ellipsize="end"/>
+
         <TextView
             android:id="@+id/tvCategory"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/TextAppearance.MaterialComponents.Caption"
-            android:text="Category"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:maxLines="1"/>
+            android:layout_below="@id/tvTitle"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:text="Category" />
+
         <TextView
             android:id="@+id/tvDate"
+            style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TextAppearance.MaterialComponents.Caption"
-            android:text="dd/MM/yyyy"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:textAlignment="center"/>
+            android:text="dd/MM/yyyy"
+            android:textAlignment="center" />
 
 
     </RelativeLayout>

@@ -29,6 +29,7 @@ class DetailMaterialActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         bookId = intent.getStringExtra("bookId").toString()
+        supportActionBar?.hide()
 
         loadMaterialDetails()
 
@@ -123,14 +124,12 @@ class DetailMaterialActivity : AppCompatActivity() {
                     val timestamp = "${snapshot.child("timestamp").value}"
                     val title = "${snapshot.child("title").value}"
                     val uid = "${snapshot.child("uid").value}"
-
                     val date = Helper.formatTimeStamp(timestamp.toLong())
-                    val date2 = date.toString()
                     Helper.loadCategory(categoryId, binding.categoryTv)
 
                     binding.descriptionMaterial.text = description
                     binding.materialTitle.text = title
-                    binding.dateTv.text = date2
+                    binding.dateTv.text = date
 
                 }
 

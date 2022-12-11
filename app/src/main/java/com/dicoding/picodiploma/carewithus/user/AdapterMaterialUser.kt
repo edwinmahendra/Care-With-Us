@@ -13,12 +13,11 @@ import com.dicoding.picodiploma.carewithus.admin.Helper
 import com.dicoding.picodiploma.carewithus.admin.ModelMaterial
 import com.dicoding.picodiploma.carewithus.databinding.ItemMaterialUserBinding
 
-class AdapterMaterialUser: RecyclerView.Adapter<AdapterMaterialUser.HolderMaterialUser>, Filterable {
+class AdapterMaterialUser: RecyclerView.Adapter<AdapterMaterialUser.HolderMaterialUser> {
     private var context: Context
     public var materialArrayList: ArrayList<ModelMaterial>
     private lateinit var binding:ItemMaterialUserBinding
     private val filterList: ArrayList<ModelMaterial>
-    private var filter: FilterMaterialUser? = null
 
     constructor(context: Context, materialArrayList: ArrayList<ModelMaterial>): super(){
         this.context = context
@@ -43,8 +42,8 @@ class AdapterMaterialUser: RecyclerView.Adapter<AdapterMaterialUser.HolderMateri
         val date = Helper.formatTimeStamp(timestamp)
 
         holder.tvTitle.text = title
-        holder.tvDescription.text = description
         holder.tvDate.text = date
+        Helper.loadCategory(categoryId,holder.tvCategory)
 
         holder.itemView.setOnClickListener{
             val intent = Intent(context, DetailMaterialActivity::class.java)
@@ -57,16 +56,10 @@ class AdapterMaterialUser: RecyclerView.Adapter<AdapterMaterialUser.HolderMateri
         return materialArrayList.size
     }
 
-    override fun getFilter(): Filter {
-        if(filter == null){
-            filter = FilterMaterialUser(filterList, this)
-        }
-        return filter as FilterMaterialUser
-    }
+
 
     inner class HolderMaterialUser(itemView: View): RecyclerView.ViewHolder(itemView){
         var tvTitle = binding.tvTitle
-        var tvDescription = binding.tvDescription
         var tvCategory = binding.tvCategory
         var tvDate = binding.tvDate
     }

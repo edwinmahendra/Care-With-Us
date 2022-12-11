@@ -15,6 +15,10 @@
         android:theme="@style/Theme.CareWithUs"
         tools:targetApi="31">
         <activity
+            android:name=".user.UserActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".favorite.FavoriteActivity"
             android:exported="false" />
         <activity
@@ -25,9 +29,6 @@
             android:exported="false" />
         <activity
             android:name=".admin.AddMaterialActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".admin.MaterialListAdminActivity"

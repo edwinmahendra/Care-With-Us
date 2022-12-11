@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.carewithus.admin
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.CalendarView
+import android.widget.Toast
 import com.dicoding.picodiploma.carewithus.R
 import com.dicoding.picodiploma.carewithus.databinding.ActivityAdminBinding
 import com.dicoding.picodiploma.carewithus.favorite.FavoriteActivity
@@ -31,16 +33,29 @@ class AdminActivity : AppCompatActivity() {
         setContentView(binding.root)
         loadCategories()
 
-        supportActionBar?.title = "Dashboard Admin"
+        supportActionBar?.hide()
 
         auth = FirebaseAuth.getInstance()
         checkUser()
 
         binding.btnLogout.setOnClickListener {
-            auth.signOut()
-            startActivity(Intent(this@AdminActivity, LoginActivity::class.java))
-            finish()
+            val exitDialog = AlertDialog.Builder(this)
+            exitDialog.setTitle("Log Out")
+            exitDialog.setMessage("Apakah anda ingin Log Out ?")
+            exitDialog.setPositiveButton(android.R.string.yes) { _, _ ->
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                auth.signOut()
+                startActivity(intent)
+                finish()
+            }
+            exitDialog.setNegativeButton(android.R.string.no) { _, _ ->
+                Toast.makeText(applicationContext,
+                    android.R.string.no, Toast.LENGTH_SHORT).show()
+            }
+            exitDialog.show()
         }
+
 
 
         binding.searchBar.addTextChangedListener(object: TextWatcher{
@@ -98,28 +113,6 @@ class AdminActivity : AppCompatActivity() {
         } else {
             val email = firebaseUser.email
 //            binding.emailAdmin.text = email
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.option_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_fav -> {
-                startActivity(Intent(this, FavoriteActivity::class.java))
-                true
-            }
-            R.id.menu_logout -> {
-                auth.signOut()
-                checkUser()
-                true
-            }
-            else -> {
-                true
-            }
         }
     }
 }

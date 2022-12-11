@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import com.dicoding.picodiploma.carewithus.R
 import com.dicoding.picodiploma.carewithus.databinding.ActivityAdminBinding
 import com.dicoding.picodiploma.carewithus.databinding.ActivityMaterialListAdminBinding
+import com.dicoding.picodiploma.carewithus.favorite.FavoriteActivity
 import com.dicoding.picodiploma.carewithus.loginactivity.LoginActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -33,9 +34,11 @@ class MaterialListAdminActivity : AppCompatActivity() {
 
         binding.tvSubtitle.text = category
         loadMateriallist()
+        supportActionBar?.hide()
+
 
         binding.backBtn.setOnClickListener {
-            startActivity(Intent(this@MaterialListAdminActivity, LoginActivity::class.java))
+            startActivity(Intent(this@MaterialListAdminActivity, AdminActivity::class.java))
             finish()
         }
 
